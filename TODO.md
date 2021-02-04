@@ -5,7 +5,6 @@ Here is a list of tasks to do (moved to [CHANGELOG.md](CHANGELOG.md) once done).
 ## Next
 
 - Use after_read data binding option to update top pixel in code text line numbers after updating text
-- Support hex() color keyword
 - Support routing of property setting/data-binding in a custom widget to a nested widget underneath its body root using the custom_widget_property_owner desginator method (called in the body of the widget that owns the properties or else body_root is the one)
 - Document that setting a lines width means it is the initial width, but it expands if needed.
 - Document custom widget technique for routing property data binding to a nested widget manually via block properties
@@ -15,38 +14,10 @@ Here is a list of tasks to do (moved to [CHANGELOG.md](CHANGELOG.md) once done).
 - Document that desktop development limitations make developers more productive on the desktop
 - Split README.md into multiple help/SOMETOPIC.md files
 - Support spawning Canvas shapes automatically having the size of the stringExtent/textExtent inside a text/string shape (rendering before string/text is rendered) (alternatively, text may be nested within a rectangle to accomplish the same thing)
-- Blog about Glimmer packaging
 
 - autocomplete rb file if launching via glimmer command and .rb is missing
-- Elaborate Clock Sample drawn with Shapes
-- Mandelbrot
-```ruby
-require "complex"
-
-class Mandelbrot
-
-  attr_accessor :max_iterations
-
-  def initialize(max_iterations)
-    @max_iterations = max_iterations
-  end
-
-  def calculate(x,y)
-    base_case = [Complex(x,y), 0]
-    Array.new(max_iterations, base_case).inject(base_case) do |prev ,base|
-      z, itr = prev
-      c, _ = base
-      val = z*z + c
-      itr += 1 unless val.abs < 2
-      [val, itr]
-    end
-  end
-end
-```
 - Canvas support a Path DSL for methods that take Path arguments
 - Consider Canvas Shape DSL support for LineAttributes (given that line_dash_offset is missing) or alternatively just support line_dash_offset externally
-
-- Condense paint listeners for a canvas shapes into one (instead of one per shape) (should optimize performance when using large shape numbers)
 
 - Canvas Shape DSL Shape Arguments Data-Binding support
 - Support width, height keyword args for Shape DSL drawimage to scale it to the intended size
@@ -56,8 +27,6 @@ end
 
 - Support Glimmer::UI::CustomImage to build a named custom image (that could be parameterized with options) using the Canvas Shape DSL
 - Hello, Custom Image (build an image from shapes giving it a name)
-
-- Zooming Canvas Shape/Animation DSL example
 
 - Support the idea of appending _widget to shape names to create self-contained independent canvas-drawn single shapes (e.g. rectangle_widget, or oval_widget, etc...). Their background is transparent or inherited from their parent (simulating transparency) by default. Their foreground is also inherited by default
 
@@ -441,8 +410,8 @@ items <=> binding {
 - Add some minor improvements to all samples (e.g. keyboard shortcuts, refactorings, cover more features of each widget, etc...)
 - Add hello samples for every built-in SWT widget including the custom package
 - Add hello samples for every [Nebula](https://www.eclipse.org/nebula/) widget, in a separate glimmer-cw-nebula gem.
+- Conway's Game of Life (as per https://andymaleh.blogspot.com/2009/11/conways-game-of-life-glimmer-edition.html but the old code is lost)
 - Music playing app
-- Conway's Game of Life using Canvas Shape/Animation DSL (as per https://andymaleh.blogspot.com/2009/11/conways-game-of-life-glimmer-edition.html but the old code is lost)
 - Web data API connected sample app (something that perhaps pulls governmental data and summarizes it/graphs it). Demonstrate how you can write this in a fraction of web code.
 - HR Employee Management app
 - Medical Patient Management app
