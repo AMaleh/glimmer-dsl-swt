@@ -4,6 +4,7 @@ Here is a list of tasks to do (moved to [CHANGELOG.md](CHANGELOG.md) once done).
 
 ## Next
 
+- Shrink image of baseball background for Hello, Table! Sample
 - Use after_read data binding option to update top pixel in code text line numbers after updating text
 - Support routing of property setting/data-binding in a custom widget to a nested widget underneath its body root using the custom_widget_property_owner desginator method (called in the body of the widget that owns the properties or else body_root is the one)
 - Document that setting a lines width means it is the initial width, but it expands if needed.
