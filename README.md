@@ -502,7 +502,7 @@ Learn more at: [docs/reference/GLIMMER_CONFIGURATION.md](docs/reference/GLIMMER_
 
 ## Samples
 
-Check the [samples](samples) directory in [glimmer-dsl-swt](https://github.com/AndyObtiva/glimmer-dsl-swt) for examples on how to write Glimmer applications. To run a sample, make sure to install the `glimmer-dsl-swt` gem first and then run:
+Check the [samples](/docs/reference/GLIMMER_SAMPLES.md) directory in [glimmer-dsl-swt](https://github.com/AndyObtiva/glimmer-dsl-swt) for examples on how to write Glimmer applications. To run a sample, make sure to install the `glimmer-dsl-swt` gem first and then run:
 ```
 glimmer samples
 ```
@@ -511,7 +511,7 @@ glimmer samples
 
 ![Glimmer Meta-Sample](/images/glimmer-meta-sample.png)
 
-See a listing of samples including screenshots and explanations at: [docs/reference/GLIMMER_SAMPLES.md](docs/reference/GLIMMER_SAMPLES.md)
+See a listing of samples including screenshots and explanations at: [docs/reference/GLIMMER_SAMPLES.md](/docs/reference/GLIMMER_SAMPLES.md)
 
 ## In Production
 
