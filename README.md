@@ -488,6 +488,8 @@ table(:multi) {
 }
 ```
 
+If you need more widgets, you can check out the [Nebula Project](https://github.com/AndyObtiva/glimmer-cw-nebula) (50+ enterprise-grade custom widgets)
+
 Learn more at: [docs/reference/GLIMMER_GUI_DSL_SYNTAX.md](docs/reference/GLIMMER_GUI_DSL_SYNTAX.md)
 
 ## Glimmer Configuration
@@ -693,3 +695,5 @@ Copyright (c) 2007-2021 - Andy Maleh.
 --
 
 [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 />](https://github.com/AndyObtiva/glimmer) Built for [Glimmer](https://github.com/AndyObtiva/glimmer) (DSL Framework).
+
+Glimmer logo was made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](http://www.flaticon.com)
