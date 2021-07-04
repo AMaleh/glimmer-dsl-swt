@@ -27,7 +27,7 @@ require 'glimmer-dsl-swt'
 class Weather
   include Glimmer::UI::CustomShell
   
-  DEFAULT_FONT_HEIGHT = 40
+  DEFAULT_FONT_HEIGHT = 30
   DEFAULT_FOREGROUND = :white
   
   attr_accessor :city, :temp, :temp_min, :temp_max, :feels_like, :humidity
@@ -61,15 +61,15 @@ class Weather
         
         text <=> [self, :city]
         
-        on_verify_text {|verify_event|
-          if verify_event.keyCode == swt(:cr) # carriage return
+        on_key_pressed {|event|
+          if event.keyCode == swt(:cr) # carriage return
             Thread.new do
               fetch_weather!
             end
           end
         }
       }
-      
+            
       tab_folder {
         layout_data(:center, :center, true, true)
         
@@ -91,6 +91,12 @@ class Weather
             humidity_field
           }
         end
+      }
+      
+      @progress_bar_container = composite {
+        layout_data(:center, :center, true, true)
+        
+        background :transparent
       }
     }
   }
@@ -126,10 +132,27 @@ class Weather
   
   def fetch_weather!
     @weather_mutex.synchronize do
+      sync_exec { # executing GUI code from a different thread
+        @progress_bar_container.content {
+          @progress_bar_proxy = progress_bar(:indeterminate) {
+            layout_data(:center, :center, true, true) {
+              width_hint 292
+            }
+          }
+        }
+        @progress_bar_container.layout
+        @progress_bar_container.pack
+      }
       self.weather_data = JSON.parse(Net::HTTP.get('api.openweathermap.org', "/data/2.5/weather?q=#{city}&appid=1d16d70a9aec3570b5cbd27e6b421330"))
+      sync_exec { # executing GUI code from a different thread
+        @progress_bar_proxy.dispose
+        @progress_bar_container.layout
+        @progress_bar_container.pack
+      }
     end
   rescue
     # No Op
+  ensure
   end
   
   def weather_data=(data)
