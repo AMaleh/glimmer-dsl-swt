@@ -29,7 +29,6 @@ module Glimmer
       # Represents an animation declaratively
       class Animation
         include Properties
-        include Glimmer::DataBinding::ObservableModel
         
         class << self
           def schedule_frame_animation(animation, &frame_animation_block)
