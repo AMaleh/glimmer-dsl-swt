@@ -47,6 +47,7 @@ module Glimmer
       end
       
       def call(value)
+        pd value, @widget.class, @property, header: true
         SWT::DisplayProxy.instance.auto_exec(override_sync_exec: @sync_exec, override_async_exec: @async_exec) do
           if @widget.respond_to?(:disposed?) && @widget.disposed?
             unregister_all_observables

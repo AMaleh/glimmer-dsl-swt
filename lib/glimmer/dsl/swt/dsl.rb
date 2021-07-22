@@ -51,8 +51,8 @@ module Glimmer
           font
           image
           multiply
-          property
           shine_data_binding
+          property
           block_property
           dialog
           widget

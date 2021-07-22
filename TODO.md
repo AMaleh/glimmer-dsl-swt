@@ -4,9 +4,10 @@ Here is a list of tasks to do (moved to [CHANGELOG.md](CHANGELOG.md) once done).
 
 ## Next
 
+- Should shine data binding come before property expression?
 - Canvas Transform DSL property data-binding
-- shape `#center` method to identify a shape center point
-- shape `#rotate` method for any shape to rotate around its center
+- shape `#center_point` method to identify a shape center point
+- shape `#rotate` method for any shape to rotate around its center point
 
 - Canvas Shape DSL autoscalable shapes or canvases
 
@@ -20,7 +21,6 @@ Here is a list of tasks to do (moved to [CHANGELOG.md](CHANGELOG.md) once done).
 - Implement charts and graphs custom widgets using Nebula Visualization and Draw2D (glimmer-cw-visualization-nebula)
 - Consider building a Spreadsheet Chart Nebula Sample showing 4 tabs of chart types based on a spreadsheet that can be edited with data.
 
-- Consider supporting a one-way `->` write-only data-binding (only useful in animation to write its frame index for example during progress without caring to read back into it)
 - Make images have a transparent background by default
 - Support percentage based width and height
 - Canvas Shape shadows (or access to previous shape to paint a shadow if needed)

@@ -22,6 +22,7 @@
 require 'glimmer/swt/display_proxy'
 require 'glimmer/swt/proxy_properties'
 require 'glimmer/swt/custom/shape'
+require 'glimmer/swt/custom/drawable'
 
 module Glimmer
   module SWT
@@ -86,6 +87,12 @@ module Glimmer
         @swt_transform
       end
       
+      def drawable
+        the_drawable = parent
+        the_drawable = the_drawable.parent until the_drawable.is_a?(Glimmer::SWT::Custom::Drawable)
+        the_drawable
+      end
+      
       def has_attribute?(attribute_name, *args)
         ATTRIBUTE_ALIASES.keys.include?(attribute_name.to_s) || Glimmer::SWT::DisplayProxy.instance.auto_exec { @swt_transform.respond_to?(attribute_name) } || super
       end
@@ -93,7 +100,12 @@ module Glimmer
       def set_attribute(attribute_name, *args)
         attribute_name = ATTRIBUTE_ALIASES[attribute_name.to_s] || attribute_name
         if @swt_transform.respond_to?(attribute_name)
-          Glimmer::SWT::DisplayProxy.instance.auto_exec { @swt_transform.send(attribute_name, *args) }
+          args = args.first if args.first.is_a?(Array)
+          Glimmer::SWT::DisplayProxy.instance.auto_exec {
+            # TODO delay calling methods till closing the content body
+            @swt_transform.send(attribute_name, *args)
+            drawable.redraw
+          }
         else
           super
         end
